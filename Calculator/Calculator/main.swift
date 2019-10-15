@@ -8,8 +8,8 @@
 
 import Foundation
 
-func mathStuffFactory(opString: String) -> (Double, Double) -> Double {
-  switch opString {
+func mathStuffFactory(operation: String) -> (Int, Int) -> Int {
+  switch operation {
   case "+":
     return {x, y in x + y }
   case "-":
@@ -23,8 +23,31 @@ func mathStuffFactory(opString: String) -> (Double, Double) -> Double {
   }
 }
 
-let closureOperation = mathStuffFactory(opString: "+")
 
-let result = closureOperation(45, 5)
+let closureOperationSum = mathStuffFactory(operation: "+")
+
+let result = closureOperationSum(45, 5)
 
 print("result of operation is \(result)")
+
+//
+
+let closureOperationSubtract = mathStuffFactory(operation: "-")
+
+let result2 = closureOperationSubtract(7,3)
+
+print("result pf operation is \(result2)")
+
+//
+
+let closureOperationDivision = mathStuffFactory(operation: "/")
+
+let result3 = closureOperationDivision(4,2)
+
+print(result3)
+
+//
+let closureOperationMultiplication = mathStuffFactory(operation: "*")
+let result4 = closureOperationMultiplication(7,7)
+print(result4)
+
